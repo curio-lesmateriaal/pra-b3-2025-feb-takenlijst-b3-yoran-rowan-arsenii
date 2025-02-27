@@ -216,6 +216,9 @@ header {
   padding-bottom: 1rem;
 }
 
+textarea{
+  resize: none;
+}
 a {
   text-decoration: none;
   color: #000;
@@ -231,6 +234,20 @@ a {
   align-items: center;
 }
 
+#createTask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dropdown{
+  width: 100%;
+}
+
+.butten{
+
+}
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
