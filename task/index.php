@@ -4,13 +4,39 @@
 
 <head>
     <title></title>
-    <?php require_once '../head.php'; ?>
+    <?php require_once '../components/head.php'; ?>
 </head>
 
 <body>
     <?php require_once '../components/header.php'; ?>
+
+    <?php 
+         require_once '../backend/conn.php';
+         $query = "SELECT * FROM taken";
+         $statement = $conn->prepare($query);
+         $statement->execute();
+         $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+
     <div class="container">
-        
+        <a href="create.php" id="create">Taak aanmaken</a>
+        <div class="task-menu">
+            <div class="task-block" id="todo">
+                <h2>Todo</h2>
+                <div class="task">
+
+                </div>
+            </div>
+            <div class="task-block" id="doing">
+                <h2>Doing</h2>
+                <div class="task">
+
+                </div>
+            </div>
+            <div class="task-block" id="done">
+                <h2>Done</h2>
+            </div>
+        </div>
     </div>
 
 </body>

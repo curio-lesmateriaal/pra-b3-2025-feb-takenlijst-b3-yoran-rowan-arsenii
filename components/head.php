@@ -1,4 +1,4 @@
-<?php require_once 'backend/config.php'; ?>
+<?php require_once __DIR__.'/../backend/config.php'; ?>
 <?php session_start(); ?>
 
 <meta charset="utf-8">
