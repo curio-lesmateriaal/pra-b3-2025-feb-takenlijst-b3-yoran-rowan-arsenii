@@ -324,6 +324,13 @@ a {
   }
 }
 
+.msg{
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: lightblue;
+  border-radius: 4px;
+}
+
 .task-menu {
   display: flex;
   justify-content: space-between;

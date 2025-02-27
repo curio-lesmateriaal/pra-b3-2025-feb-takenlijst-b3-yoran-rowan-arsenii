@@ -20,6 +20,12 @@
 
     <div class="container">
         <a href="create.php" id="create">Taak aanmaken</a>
+        
+        <?php if(isset($_GET['msg']))
+        {
+            echo "<div class='msg'>" . $_GET['msg'] . "</div>";
+        } ?>
+
         <div class="task-menu">
             <div class="task-block" id="todo">
                 <h2>Todo</h2>
