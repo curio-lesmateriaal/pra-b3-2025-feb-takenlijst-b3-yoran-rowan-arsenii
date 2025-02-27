@@ -10,8 +10,7 @@
 <body>
     <?php require_once '../components/header.php'; ?>
     <div class="container">
-
-
+        
     </div>
 
 </body>

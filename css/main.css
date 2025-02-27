@@ -87,28 +87,28 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-html{
-    font-size: 16px;
+html {
+  font-size: 16px;
 }
 
-.container{
-    max-width: 1024px;
-    margin: 0 auto;
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
-.form-group{
-    margin: 1rem 0;
+.form-group {
+  margin: 1rem 0;
 }
 
-label{
-    cursor: pointer;
-    display: inline-block;
-    min-width: 140px;
-    vertical-align: top;
+label {
+  cursor: pointer;
+  display: inline-block;
+  min-width: 140px;
+  vertical-align: top;
 }
 
-.form-input{
-    width: 600px;
+.form-input {
+  width: 600px;
 }
 
 
@@ -197,28 +197,37 @@ label{
 }
 
 /* header ccs */
-header .container{
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
 }
 
-.logo{
+.logo {
   height: 5rem;
 }
 
-header{
+header {
   border-bottom: 1px solid lightgrey;
   font-size: 1.25rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-a{
+a {
   text-decoration: none;
   color: #000;
 
+}
+
+
+.naamFotoMain {
+  min-height: calc(100vh - 7rem - 1px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ==========================================================================
@@ -232,9 +241,9 @@ a{
 }
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -245,6 +254,7 @@ a{
    ========================================================================== */
 
 @media print {
+
   *,
   *::before,
   *::after {
@@ -312,4 +322,3 @@ a{
     page-break-after: avoid;
   }
 }
-
