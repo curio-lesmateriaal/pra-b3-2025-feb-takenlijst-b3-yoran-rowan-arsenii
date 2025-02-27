@@ -196,6 +196,31 @@ label{
   clear: both;
 }
 
+/* header ccs */
+header .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.logo{
+  height: 5rem;
+}
+
+header{
+  border-bottom: 1px solid lightgrey;
+  font-size: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+
+}
+
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.

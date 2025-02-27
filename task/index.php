@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="nl">
 
@@ -7,7 +8,7 @@
 </head>
 
 <body>
-    <?php require_once 'components/header.php'; ?>
+    <?php require_once '../components/header.php'; ?>
     <div class="container">
 
 
