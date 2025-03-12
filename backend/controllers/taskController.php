@@ -5,12 +5,41 @@ $action = $_POST['action'];
 
 if ($action == "create") {
     $titel = $_POST["titel"];
-    $beschrijving = $_POST["beschrijving"];
-    $afdeling = $_POST["afdeling"];
-    $status = "todo";
-    $deadline = $_POST["deadline"];
-    $user = $_POST["user"];
+    if (empty($titel)) {
+        $errors[] = "Vul de taak-naam in. ";
+    }
 
+    $beschrijving = $_POST["beschrijving"];
+    if (empty($titel)) {
+        $errors[] = "Vul de beschrijving in. ";
+    }
+    $afdeling = $_POST["afdeling"];
+    if (empty($titel)) {
+        $errors[] = "Vul de afdeling in. ";
+    }
+
+
+    //!!!! ondere nog maken
+    $status = "status";
+    if (empty($titel)) {
+        $errors[] = "Vul de status in. ";
+    }
+
+
+    $deadline = $_POST["deadline"];
+    if (empty($titel)) {
+        $errors[] = "Vul de deadline in. ";
+    }
+
+    $user = $_POST["user"];
+    if (empty($titel)) {
+        $errors[] = "Vul de user in. ";
+    }
+
+    if (isset($errors)) {
+        var_dump($errors);
+        die();
+    }
     $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user)
     VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user);";
 

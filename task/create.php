@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="user">Nummer melder</label>
                 <div>
-                    <input type="number"  name="user" id="user" class="form-input">
+                    <input type="number" name="user" id="user" class="form-input">
                 </div>
             </div>
 
@@ -52,7 +52,20 @@
             </div>
 
             <div class="form-group">
-                    <input type="date" name="deadline" id="deadline" class="datetime">
+
+                <label for="status">status</label>
+                <div class="dropdown">
+                    <select name="status" id="status" class="form-input">
+                        <option value=""></option>
+                        <option value="Personeel">To do</option>
+                        <option value="Horeca">Doing</option>
+                        <option value="Techniek">Done</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="date" name="deadline" id="deadline" class="datetime">
             </div>
             <div class="butten">
                 <input type="submit" class="form-input" value="Verstuur melding">
