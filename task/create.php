@@ -16,30 +16,30 @@
             <input type="hidden" name="action" value="create">
 
             <div class="form-group">
-                <label for="attractie">Naam Taak</label>
+                <label for="titel">Naam Taak</label>
                 <div>
-                    <input type="text" name="attractie" id="attractie" class="form-input">
+                    <input type="text" name="titel" id="titel" class="form-input">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="capaciteit">Naam melder</label>
+                <label for="user">Nummer melder</label>
                 <div>
-                    <input type="text"  name="capaciteit" id="capaciteit" class="form-input">
+                    <input type="number"  name="user" id="user" class="form-input">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="overige_info">info over taak </label>
+                <label for="beschrijving">info over taak </label>
                 <div>
-                    <textarea name="overig" id="overig" class="form-input" rows="4"></textarea>
+                    <textarea name="beschrijving" id="beschrijving" class="form-input" rows="4"></textarea>
                 </div>
             </div>
             <div class="form-group">
 
-                <label for="type">afdeling</label>
+                <label for="afdeling">afdeling</label>
                 <div class="dropdown">
-                    <select name="type" id="type" class="form-input">
+                    <select name="afdeling" id="afdeling" class="form-input">
                         <option value=""></option>
                         <option value="Personeel">Personeel</option>
                         <option value="Horeca">Horeca</option>
@@ -49,6 +49,10 @@
                         <option value="Groen">Groen</option>
                     </select>
                 </div>
+            </div>
+
+            <div class="form-group">
+                    <input type="date" name="deadline" id="deadline" class="datetime">
             </div>
             <div class="butten">
                 <input type="submit" class="form-input" value="Verstuur melding">
