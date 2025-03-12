@@ -57,4 +57,22 @@ if ($action == "create") {
     header("Location: ../../task/index.php?msg=Taak aangemaakt!");
 }
 
+
+if ($action == 'delete') {
+    require_once '../conn.php';
+
+    // Check of ID is meegegeven
+    if (!isset($_POST['id']) || empty($_POST['id'])) {
+        header("Location: ../../../resources/views/meldingen/index.php?msg=Geen ID opgegeven!");
+        exit();
+    }
+
+    $id = $_POST['id'];
+    $query = "DELETE FROM taken WHERE id = :id";
+    $statement = $conn->prepare($query);
+    $statement->execute([':id' => $id]);
+
+    header("Location: ../../task/index.php?msg=Taak aangemaakt!");
+    exit();
+}
 ?>
