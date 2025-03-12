@@ -251,6 +251,55 @@ a {
 .butten{
 
 }
+
+.msg{
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: lightblue;
+  border-radius: 4px;
+}
+
+.task-menu {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  
+}
+
+.task-block {
+  border: #000 1px solid;
+  width: 300px;
+  /* border-radius: 20px; */
+}
+
+.task-block h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: #000 solid 1px;
+  padding-bottom: 15px;
+}
+
+.task {
+
+  height: 75px;
+  margin: 15px;
+  border: #000 1px solid;
+  border-radius: 10px;
+}
+
+#create {
+  display: flex;
+  justify-self: right;
+  text-decoration: none;
+}
+
+.aanmaken-tekst{
+  margin-top: 2%;
+  border: #000 solid 1px;
+  padding: 1%;
+  border-radius: 10px;
+}
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
@@ -344,41 +393,3 @@ a {
   }
 }
 
-.msg{
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: lightblue;
-  border-radius: 4px;
-}
-
-.task-menu {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.task-block {
-  border: #000 1px solid;
-  width: 300px;
-}
-
-.task-block h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: #000 solid 1px;
-  padding-bottom: 15px;
-}
-
-.task {
-  /* width: 100px; */
-  height: 75px;
-  margin: 15px;
-  border: #000 1px solid;
-}
-
-#create {
-  display: flex;
-  justify-self: right;
-  text-decoration: none;
-}

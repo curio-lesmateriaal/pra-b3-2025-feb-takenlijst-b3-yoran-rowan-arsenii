@@ -19,7 +19,9 @@
     ?>
 
     <div class="container">
-        <a href="create.php" id="create">Taak aanmaken</a>
+        <div class="knop-aanmaken">
+            <a href="create.php" id="create" class="aanmaken-tekst">Taak aanmaken</a>
+        </div>
         
         <?php if(isset($_GET['msg']))
         {
