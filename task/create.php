@@ -8,7 +8,7 @@
 
 <body>
     <?php require_once '../components/header.php'; ?>
-    <div class="container" id="createTask">
+    <div class="container" id="changesTask">
 
         <h1>Nieuwe melding</h1>
 
@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-group">
-                <label for="user">Nummer melder</label>
+                <label for="user">Nummer user</label>
                 <div>
                     <input type="number" name="user" id="user" class="form-input">
                 </div>
@@ -57,9 +57,9 @@
                 <div class="dropdown">
                     <select name="status" id="status" class="form-input">
                         <option value=""></option>
-                        <option value="Personeel">To do</option>
-                        <option value="Horeca">Doing</option>
-                        <option value="Techniek">Done</option>
+                        <option value="Todo">Todo</option>
+                        <option value="Doing">Doing</option>
+                        <option value="Done">Done</option>
                     </select>
                 </div>
             </div>

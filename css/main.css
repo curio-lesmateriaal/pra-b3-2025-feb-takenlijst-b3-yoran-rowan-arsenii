@@ -241,6 +241,13 @@ a {
   flex-direction: column;
 }
 
+#changesTask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .dropdown{
   width: 100%;
 }
@@ -282,7 +289,6 @@ a {
 
 .task {
 
-  height: 75px;
   margin: 15px;
   border: #000 1px solid;
   border-radius: 10px;
@@ -299,6 +305,10 @@ a {
   border: #000 solid 1px;
   padding: 1%;
   border-radius: 10px;
+}
+
+.footer{
+  margin-top: 2%;
 }
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.

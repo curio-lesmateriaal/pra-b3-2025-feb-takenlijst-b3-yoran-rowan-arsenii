@@ -10,29 +10,27 @@ if ($action == "create") {
     }
 
     $beschrijving = $_POST["beschrijving"];
-    if (empty($titel)) {
+    if (empty($beschrijving)) {
         $errors[] = "Vul de beschrijving in. ";
     }
     $afdeling = $_POST["afdeling"];
-    if (empty($titel)) {
+    if (empty($afdeling)) {
         $errors[] = "Vul de afdeling in. ";
     }
 
-
-    //!!!! ondere nog maken
-    $status = "status";
-    if (empty($titel)) {
+    $status = $_POST["status"];
+    if (empty($status)) {
         $errors[] = "Vul de status in. ";
     }
 
 
     $deadline = $_POST["deadline"];
-    if (empty($titel)) {
+    if (empty($deadline)) {
         $errors[] = "Vul de deadline in. ";
     }
 
     $user = $_POST["user"];
-    if (empty($titel)) {
+    if (empty($user)) {
         $errors[] = "Vul de user in. ";
     }
 
@@ -40,7 +38,7 @@ if ($action == "create") {
         var_dump($errors);
         die();
     }
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user)
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user )
     VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user);";
 
     $statement = $conn->prepare($query);
@@ -57,11 +55,9 @@ if ($action == "create") {
     header("Location: ../../task/index.php?msg=Taak aangemaakt!");
 }
 
-
 if ($action == 'delete') {
     require_once '../conn.php';
 
-    // Check of ID is meegegeven
     if (!isset($_POST['id']) || empty($_POST['id'])) {
         header("Location: ../../../resources/views/meldingen/index.php?msg=Geen ID opgegeven!");
         exit();
@@ -72,7 +68,7 @@ if ($action == 'delete') {
     $statement = $conn->prepare($query);
     $statement->execute([':id' => $id]);
 
-    header("Location: ../../task/index.php?msg=Taak aangemaakt!");
+    header("Location: ../../task/index.php?msg=Taak verwijderd!");
     exit();
 }
 ?>
