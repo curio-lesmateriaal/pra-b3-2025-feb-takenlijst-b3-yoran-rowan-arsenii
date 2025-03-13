@@ -38,7 +38,8 @@
             <div class="form-group">
                 <label for="titel">Naam Taak</label>
                 <div>
-                    <input type="text" name="titel" id="titel" class="form-input" value="<?php echo $tasks['titel']; ?>">
+                    <input type="text" name="titel" id="titel" class="form-input"
+                        value="<?php echo $tasks['titel']; ?>">
                 </div>
             </div>
 
@@ -52,15 +53,16 @@
             <div class="form-group">
                 <label for="beschrijving">info over taak </label>
                 <div>
-                    <textarea name="beschrijving" id="beschrijving"  class="form-input" rows="4" ></textarea>
+                    <textarea name="beschrijving" id="beschrijving" class="form-input"
+                        rows="4"><?php echo $tasks['beschrijving']; ?></textarea>
                 </div>
             </div>
             <div class="form-group">
 
                 <label for="afdeling">afdeling</label>
                 <div class="dropdown">
-                    <select name="afdeling" id="afdeling" class="form-input" >
-                        <option value="<?php echo $tasks['afdeling']; ?>"></option>
+                    <select name="afdeling" id="afdeling" class="form-input">
+                        <option value="<?php echo $tasks['afdeling']; ?>"><?php echo $tasks['afdeling']; ?></option>
                         <option value="Personeel">Personeel</option>
                         <option value="Horeca">Horeca</option>
                         <option value="Techniek">Techniek</option>
@@ -75,8 +77,8 @@
 
                 <label for="status">status</label>
                 <div class="dropdown">
-                    <select name="status" id="status" class="form-input" value="<?php echo $tasks['status']; ?>">
-                        <option value=""></option>
+                    <select name="status" id="status" class="form-input" value="">
+                        <option value="<?php echo $tasks['status']; ?>"><?php echo $tasks['status']; ?></option>
                         <option value="Todo">Todo</option>
                         <option value="Doing">Doing</option>
                         <option value="Done">Done</option>
@@ -85,10 +87,12 @@
             </div>
 
             <div class="form-group">
-                <input type="date" name="deadline" id="deadline" class="datetime" value="<?php echo $tasks['deadline']; ?>">
+                <label for="deadline">deadline</label>
+                <input type="date" name="deadline" id="deadline" class="datetime"
+                    value="<?php echo $tasks['deadline']; ?>">
             </div>
-
-            <input type="submit" value="Melding opslaan">
+            <div class="form-container">
+                <input type="submit" value="Melding opslaan" class="buttonOP">
 
         </form>
 
@@ -96,8 +100,11 @@
             onsubmit="return confirm('Weet je zeker dat je deze melding wilt verwijderen?');">
             <input type="hidden" name="action" value="delete">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <input type="submit" value="Verwijderen">
+            <div class="VerwijderenButten">
+                <input type="submit" value="Verwijderen" class="buttonVV">
+            </div>
         </form>
+    </div>
     </div>
 
 </body>
