@@ -289,8 +289,14 @@ a {
 
   margin: 15px;
   border: #000 1px solid;
-  padding: 10px;
+  /* padding: 10px; */
+  padding-left: 10px;
+  padding-right: 10px;
 
+}
+
+.task p{
+  margin: 5px;
 }
 
 .task h1{
