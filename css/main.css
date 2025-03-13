@@ -219,10 +219,10 @@ header {
 textarea{
   resize: none;
 }
+
 a {
   text-decoration: none;
   color: #000;
-
 }
 
 
@@ -255,9 +255,7 @@ a {
 .datetime{
   width: 98%;
 }
-.butten{
 
-}
 
 .msg{
   margin: 1rem 0;
@@ -296,15 +294,26 @@ a {
 }
 
 .task h1{
-  margin-top: 5px;
-  border-bottom: #000 solid  ;
+  /* margin-top: 5px; */
   font-size: 110%;
 }
 
-#create {
+.task-top {
   display: flex;
-  justify-self: right;
-  text-decoration: none;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: #000 solid;
+}
+
+.task-create {
+  padding-top: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: right;
+}
+
+.task-top i, .task-top a {
+  padding-bottom: 0px;
 }
 
 .aanmaken-tekst{

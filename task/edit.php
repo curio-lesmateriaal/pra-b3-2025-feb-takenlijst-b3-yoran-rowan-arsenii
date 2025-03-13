@@ -29,14 +29,14 @@
 
     ?>
     <div class="container" id="createTask">
-        <h1>Melding aanpassen</h1>
+        <h1>Taak aanpassen</h1>
 
         <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST">
             <input type="hidden" name="action" value="update">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
 
             <div class="form-group">
-                <label for="titel">Naam Taak</label>
+                <label for="titel">Titel:</label>
                 <div>
                     <input type="text" name="titel" id="titel" class="form-input"
                         value="<?php echo $tasks['titel']; ?>">
@@ -44,14 +44,14 @@
             </div>
 
             <div class="form-group">
-                <label for="user">Nummer user</label>
+                <label for="user">Gebruikers ID:</label>
                 <div>
                     <input type="number" name="user" id="user" class="form-input" value="<?php echo $tasks['user']; ?>">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="beschrijving">info over taak </label>
+                <label for="beschrijving">Beschrijving:</label>
                 <div>
                     <textarea name="beschrijving" id="beschrijving" class="form-input"
                         rows="4"><?php echo $tasks['beschrijving']; ?></textarea>
@@ -59,7 +59,7 @@
             </div>
             <div class="form-group">
 
-                <label for="afdeling">afdeling</label>
+                <label for="afdeling">Afdeling:</label>
                 <div class="dropdown">
                     <select name="afdeling" id="afdeling" class="form-input">
                         <option value="<?php echo $tasks['afdeling']; ?>"><?php echo $tasks['afdeling']; ?></option>
@@ -75,7 +75,7 @@
 
             <div class="form-group">
 
-                <label for="status">status</label>
+                <label for="status">Status:</label>
                 <div class="dropdown">
                     <select name="status" id="status" class="form-input" value="">
                         <option value="<?php echo $tasks['status']; ?>"><?php echo $tasks['status']; ?></option>
@@ -87,7 +87,7 @@
             </div>
 
             <div class="form-group">
-                <label for="deadline">deadline</label>
+                <label for="deadline">Deadline:</label>
                 <input type="date" name="deadline" id="deadline" class="datetime"
                     value="<?php echo $tasks['deadline']; ?>">
             </div>

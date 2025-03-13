@@ -18,7 +18,10 @@
     ?>
 
     <div class="container">
-        <a href="create.php" id="create">Taak aanmaken</a>
+        <div class="task-create" href="create.php">
+            <a href="create.php">
+            <i class="fa-solid fa-plus"></i> Taak aanmaken</a>
+        </div>
 
         <?php if(isset($_GET['msg']))
         {
@@ -31,7 +34,11 @@
                 <?php foreach ($tasks as $task): ?>
                     <?php if ($task['status'] === 'Todo'): ?>
                         <div class="task">
-                            <h1><?php echo $task['titel']; ?></h1>
+                            <div class="task-top">
+                                <h1><?php echo $task['titel']; ?></h1>
+                                <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
+                            </div>
+                            
                             <p>Voor user: <?php echo $task['user']; ?></p>
                             <p>afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
@@ -39,8 +46,6 @@
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
-                                <a href="edit.php?id=<?php echo $task['id']; ?>">aanpassen</a>
-                                <input type="submit" value="Verwijderen" class="delete-button">
                             </form>
                         </div>
                     <?php endif; ?>
@@ -51,7 +56,10 @@
                 <?php foreach ($tasks as $task): ?>
                     <?php if ($task['status'] === 'Doing'): ?>
                         <div class="task">
-                            <h1><?php echo $task['titel']; ?></h1>
+                            <div class="task-top">
+                                <h1><?php echo $task['titel']; ?></h1>
+                                <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
+                            </div>
                             <p>Voor user: <?php echo $task['user']; ?></p>
                             <p>afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
@@ -59,8 +67,6 @@
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
-                                <a href="edit.php?id=<?php echo $task['id']; ?>">aanpassen</a>
-                                <input type="submit" value="Verwijderen" class="delete-button">
                             </form>
                         </div>
                     <?php endif; ?>
@@ -71,7 +77,10 @@
                 <?php foreach ($tasks as $task): ?>
                     <?php if ($task['status'] === 'Done'): ?>
                         <div class="task">
-                            <h1><?php echo $task['titel']; ?></h1>
+                            <div class="task-top">
+                                <h1><?php echo $task['titel']; ?></h1>
+                                <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
+                            </div>
                             <p>Voor user: <?php echo $task['user']; ?></p>
                             <p>afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
@@ -79,8 +88,6 @@
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
-                                <a href="edit.php?id=<?php echo $task['id']; ?>">aanpassen</a>
-                                <input type="submit" value="Verwijderen" class="delete-button">
                             </form>
                         </div>
                     <?php endif; ?>
