@@ -60,9 +60,9 @@
                                 <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                             </div>
 
-                            <p>Afdeling: <?php echo $task['afdeling']; ?></p>
-                            <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
-                            
+                            <p>afdeling: <?php echo $task['afdeling']; ?></p>
+                            <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
+
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
@@ -81,6 +81,7 @@
                                 <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                             </div>
 
+                            <p>Voor gebruiker: <?php echo $task['user']; ?> ID</p>
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
                             
