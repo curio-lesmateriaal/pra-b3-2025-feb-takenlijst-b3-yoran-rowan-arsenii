@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php?msg=Je moet eerst inloggen!");
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="nl">
 
@@ -11,7 +19,7 @@
 
     <?php
     require_once '../backend/conn.php';
-    $query = "SELECT * FROM taken";
+    $query = "SELECT * FROM taken ORDER BY deadline DESC";
     $statement = $conn->prepare($query);
     $statement->execute();
     $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -23,9 +31,14 @@
                 <i class="fa-solid fa-plus"></i> Taak aanmaken</a>
         </div>
 
-        <?php if (isset($_GET['msg'])) {
-            echo "<div class='msg'>" . $_GET['msg'] . "</div>";
-        } ?>
+        <div class="msg-block">
+            <?php
+            if (isset($_GET['msg'])) {
+                echo "<div class='msg' id='msg'>" . htmlspecialchars($_GET['msg']) . "</div>";
+            }
+            ?>
+        </div>
+       
 
         <div class="task-menu">
             <div class="task-block" id="Todo">
@@ -41,6 +54,7 @@
 
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
+                            <p>deadline: <?php echo $task['deadline']; ?></p>
 
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
@@ -62,6 +76,7 @@
 
                             <p>afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
+                            <p>deadline: <?php echo $task['deadline']; ?></p>
 
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
@@ -83,7 +98,8 @@
 
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
-                            
+                            <p>deadline: <?php echo $task['deadline']; ?></p>
+
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
@@ -102,3 +118,17 @@
 </body>
 
 </html>
+
+<script>
+    setTimeout(function () {
+        var msg = document.getElementById('msg');
+        if (msg) {
+            msg.style.transition = "opacity 1s";
+            msg.style.opacity = "0";
+
+            setTimeout(function () {
+                msg.remove();
+            }, 1000);
+        }
+    }, 5000); 
+</script>

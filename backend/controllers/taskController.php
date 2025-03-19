@@ -18,16 +18,19 @@ if ($action == "create") {
         $errors[] = "Vul de afdeling in. ";
     }
 
+    $deadline = $_POST["deadline"];
+    if (empty($deadline)) {
+        $errors[] = "Vul de deadline in. ";
+    }
+
     $status = "Todo";
-    $deadline = "19-3-2025";
-    $user = 0;
 
     if (isset($errors)) {
         var_dump($errors);
         die();
     }
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user )
-    VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user);";
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline)
+    VALUES (:titel, :beschrijving, :afdeling, :status, :deadline);";
 
     $statement = $conn->prepare($query);
 
@@ -36,8 +39,7 @@ if ($action == "create") {
         ":beschrijving"=> $beschrijving,
         ":afdeling"=> $afdeling,
         ":status"=> $status,
-        ":deadline"=> $deadline,
-        ":user"=> $user
+        ":deadline"=>$deadline,
     ]);
 
     header("Location: ../../task/index.php?msg=Taak aangemaakt!");
@@ -49,23 +51,23 @@ if ($action == "update") {
     $titel = $_POST["titel"];
     $beschrijving = $_POST["beschrijving"];
     $afdeling = $_POST["afdeling"];
+    $deadline = $_POST["deadline"];
     $status = $_POST['status'];
-    $deadline = "19-3-2025";
-    $user = 0;
 
 
-    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, status = :status, deadline = :deadline, user = :user WHERE id = :id;";
+    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, status = :status, deadline = :deadline, afdeling = :afdeling WHERE id = :id;";
     $statement = $conn->prepare($query);
+
+    echo $id;
 
     $statement->execute([
         ":titel"=> $titel,
         ":beschrijving"=> $beschrijving,
-        ":afdeling"=> $afdeling,
         ":status"=> $status,
+        ":afdeling"=> $afdeling,
         ":deadline"=> $deadline,
-        ":user"=> $user,
         ":id" => $id
-    ]);
+    ]); 
 
     header("Location: ../../task/index.php?msg=Taak veranderd!");
 

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php?msg=Je moet eerst inloggen!");
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="nl">
 
@@ -46,7 +54,11 @@
                 </div>
             </div>
 
-
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" name="deadline" id="deadline" class="datetime">
+            </div>
+            
             <div class="butten">
                 <input type="submit" class="form-input" value="Taak aanmaken">
             </div>

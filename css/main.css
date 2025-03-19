@@ -257,12 +257,22 @@ a {
 }
 
 
-.msg{
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: lightblue;
-  border-radius: 4px;
+
+.msg {
+  background-color: #393939;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  height: 50px; 
+  line-height: 50px; 
 }
+
+.msg-block {
+  height: 50px;
+  padding: 10px 0;
+}
+
 
 .task-menu {
   display: flex;
@@ -385,6 +395,9 @@ a {
 
 
 
+.inlogPage{
+  padding-top: 10%;
+}
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
