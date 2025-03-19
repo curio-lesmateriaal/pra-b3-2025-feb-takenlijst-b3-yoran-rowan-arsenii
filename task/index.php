@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <?php
     require_once '../backend/conn.php';
-    $query = "SELECT * FROM taken";
+    $query = "SELECT * FROM taken ORDER BY deadline DESC";
     $statement = $conn->prepare($query);
     $statement->execute();
     $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -54,6 +54,7 @@ if (!isset($_SESSION['user_id'])) {
 
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
+                            <p>deadline: <?php echo $task['deadline']; ?></p>
 
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
@@ -75,6 +76,7 @@ if (!isset($_SESSION['user_id'])) {
 
                             <p>afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
+                            <p>deadline: <?php echo $task['deadline']; ?></p>
 
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
@@ -96,7 +98,8 @@ if (!isset($_SESSION['user_id'])) {
 
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
-                            
+                            <p>deadline: <?php echo $task['deadline']; ?></p>
+
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
