@@ -268,13 +268,15 @@ a {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  
-}
 
+}
 .task-block {
   border: #000 1px solid;
   width: 300px;
   /* border-radius: 20px; */
+  overflow-y: auto;
+
+  max-height: 600px;
 }
 
 .task-block h2 {
