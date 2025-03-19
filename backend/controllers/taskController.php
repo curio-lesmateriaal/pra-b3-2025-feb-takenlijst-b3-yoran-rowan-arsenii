@@ -19,17 +19,8 @@ if ($action == "create") {
     }
 
     $status = "Todo";
-
-
-    $deadline = $_POST["deadline"];
-    if (empty($deadline)) {
-        $errors[] = "Vul de deadline in. ";
-    }
-
-    $user = $_POST["user"];
-    if (empty($user)) {
-        $errors[] = "Vul de user in. ";
-    }
+    $deadline = "19-3-2025";
+    $user = 0;
 
     if (isset($errors)) {
         var_dump($errors);
@@ -59,8 +50,8 @@ if ($action == "update") {
     $beschrijving = $_POST["beschrijving"];
     $afdeling = $_POST["afdeling"];
     $status = $_POST['status'];
-    $deadline = $_POST["deadline"];
-    $user = $_POST["user"];
+    $deadline = "19-3-2025";
+    $user = 0;
 
 
     $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, status = :status, deadline = :deadline, user = :user WHERE id = :id;";
