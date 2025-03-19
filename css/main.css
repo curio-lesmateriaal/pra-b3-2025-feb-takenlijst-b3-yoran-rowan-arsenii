@@ -362,6 +362,28 @@ a {
   cursor: pointer;
 }
 
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginForm .form-group {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.loginForm .form-group a {
+  color: #0e4890;
+}
+
+
+
+
+
+
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
