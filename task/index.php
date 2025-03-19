@@ -81,7 +81,6 @@
                                 <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                             </div>
 
-                            <p>Voor gebruiker: <?php echo $task['user']; ?> ID</p>
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
                             
