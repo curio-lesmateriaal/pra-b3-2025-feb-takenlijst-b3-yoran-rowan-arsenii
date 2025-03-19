@@ -19,15 +19,13 @@ if ($action == "create") {
     }
 
     $status = "Todo";
-    $deadline = "19-3-2025";
-    $user = 0;
 
     if (isset($errors)) {
         var_dump($errors);
         die();
     }
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user )
-    VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user);";
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status )
+    VALUES (:titel, :beschrijving, :afdeling, :status);";
 
     $statement = $conn->prepare($query);
 
@@ -36,8 +34,6 @@ if ($action == "create") {
         ":beschrijving"=> $beschrijving,
         ":afdeling"=> $afdeling,
         ":status"=> $status,
-        ":deadline"=> $deadline,
-        ":user"=> $user
     ]);
 
     header("Location: ../../task/index.php?msg=Taak aangemaakt!");
@@ -50,11 +46,9 @@ if ($action == "update") {
     $beschrijving = $_POST["beschrijving"];
     $afdeling = $_POST["afdeling"];
     $status = $_POST['status'];
-    $deadline = "19-3-2025";
-    $user = 0;
 
 
-    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, status = :status, deadline = :deadline, user = :user WHERE id = :id;";
+    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, status = :status WHERE id = :id;";
     $statement = $conn->prepare($query);
 
     $statement->execute([
@@ -62,8 +56,6 @@ if ($action == "update") {
         ":beschrijving"=> $beschrijving,
         ":afdeling"=> $afdeling,
         ":status"=> $status,
-        ":deadline"=> $deadline,
-        ":user"=> $user,
         ":id" => $id
     ]);
 
