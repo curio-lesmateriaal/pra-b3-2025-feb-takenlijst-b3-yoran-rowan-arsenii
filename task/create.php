@@ -22,12 +22,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="user">Gebruikers ID:</label>
-                <div>
-                    <input type="number" name="user" id="user" class="form-input">
-                </div>
-            </div>
+
 
             <div class="form-group">
                 <label for="beschrijving">Beschrijving:</label>
@@ -51,23 +46,7 @@
                 </div>
             </div>
 
-            <!-- <div class="form-group">
 
-                <label for="status">Status:</label>
-                <div class="dropdown">
-                    <select name="status" id="status" class="form-input">
-                        <option value=""></option>
-                        <option value="Todo">Todo</option>
-                        <option value="Doing">Doing</option>
-                        <option value="Done">Done</option>
-                    </select>
-                </div>
-            </div> -->
-
-            <div class="form-group">
-                <label for="deadline">Deadline:</label>
-                <input type="date" name="deadline" id="deadline" class="datetime">
-            </div>
             <div class="butten">
                 <input type="submit" class="form-input" value="Taak aanmaken">
             </div>
