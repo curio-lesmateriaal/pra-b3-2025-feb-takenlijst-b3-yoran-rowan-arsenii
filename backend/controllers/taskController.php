@@ -18,10 +18,7 @@ if ($action == "create") {
         $errors[] = "Vul de afdeling in. ";
     }
 
-    $status = $_POST["status"];
-    if (empty($status)) {
-        $errors[] = "Vul de status in. ";
-    }
+    $status = "Todo";
 
 
     $deadline = $_POST["deadline"];

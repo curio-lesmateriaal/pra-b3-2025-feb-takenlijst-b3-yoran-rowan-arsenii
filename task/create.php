@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
                 <label for="status">Status:</label>
                 <div class="dropdown">
@@ -62,7 +62,7 @@
                         <option value="Done">Done</option>
                     </select>
                 </div>
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <label for="deadline">Deadline:</label>
