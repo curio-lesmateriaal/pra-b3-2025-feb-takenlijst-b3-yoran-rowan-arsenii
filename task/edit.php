@@ -44,13 +44,6 @@
             </div>
 
             <div class="form-group">
-                <label for="user">Gebruikers ID:</label>
-                <div>
-                    <input type="number" name="user" id="user" class="form-input" value="<?php echo $tasks['user']; ?>">
-                </div>
-            </div>
-
-            <div class="form-group">
                 <label for="beschrijving">Beschrijving:</label>
                 <div>
                     <textarea name="beschrijving" id="beschrijving" class="form-input"
@@ -86,11 +79,6 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="deadline">Deadline:</label>
-                <input type="date" name="deadline" id="deadline" class="datetime"
-                    value="<?php echo $tasks['deadline']; ?>">
-            </div>
             <div class="form-container">
                 <input type="submit" value="Melding opslaan" class="buttonOP">
 

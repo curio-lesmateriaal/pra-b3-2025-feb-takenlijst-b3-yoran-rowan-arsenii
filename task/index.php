@@ -31,35 +31,17 @@
             <div class="task-block" id="Todo">
                 <h2>Todo</h2>
 
-                    <?php foreach ($tasks as $task): ?>
-                        <?php if ($task['status'] === 'Todo'): ?>
-                            <div class="task">
-                                <div class="task-top">
-                                    <h1><?php echo $task['titel']; ?></h1>
-                                    <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
-                                </div>
-
-                                <p>Voor user: <?php echo $task['user']; ?></p>
-                                <p>afdeling: <?php echo $task['afdeling']; ?></p>
-                                <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
-                                <p>deadline: <?php echo $task['deadline']; ?></p>
-                                <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST"
-                                    onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
-                                    <input type="hidden" name="action" value="delete">
-                                    <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
-                                </form>
+                <?php foreach ($tasks as $task): ?>
+                    <?php if ($task['status'] === 'Todo'): ?>
+                        <div class="task">
+                            <div class="task-top">
+                                <h1><?php echo $task['titel']; ?></h1>
+                                <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                             </div>
-<<<<<<< Updated upstream
 
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-=======
-                            
-                            <p>Gebuikers ID: <?php echo $task['user']; ?></p>
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
-                            <p>Deadline: <?php echo $task['deadline']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
-                            
+
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
@@ -67,7 +49,6 @@
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
->>>>>>> Stashed changes
             </div>
             <div class="task-block" id="Doing">
                 <h2>Doing</h2>
@@ -78,20 +59,11 @@
                                 <h1><?php echo $task['titel']; ?></h1>
                                 <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                             </div>
-<<<<<<< Updated upstream
-                            <p>Voor user: <?php echo $task['user']; ?></p>
-                            <p>afdeling: <?php echo $task['afdeling']; ?></p>
-                            <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
-                            <p>deadline: <?php echo $task['deadline']; ?></p>
-                            <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST"
-                                onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
-=======
-                            <p>Gebuikers ID: <?php echo $task['user']; ?></p>
+
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
-                            <p>Deadline: <?php echo $task['deadline']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
+                            
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
->>>>>>> Stashed changes
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
                             </form>
@@ -108,20 +80,11 @@
                                 <h1><?php echo $task['titel']; ?></h1>
                                 <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                             </div>
-<<<<<<< Updated upstream
-                            <p>Voor user: <?php echo $task['user']; ?></p>
-                            <p>afdeling: <?php echo $task['afdeling']; ?></p>
-                            <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
-                            <p>deadline: <?php echo $task['deadline']; ?></p>
-                            <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST"
-                                onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
-=======
-                            <p>Voor gebruiker: <?php echo $task['user']; ?> ID</p>
+
                             <p>Afdeling: <?php echo $task['afdeling']; ?></p>
-                            <p>Deadline: <?php echo $task['deadline']; ?></p>
                             <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
+                            
                             <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST" onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
->>>>>>> Stashed changes
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
                             </form>
