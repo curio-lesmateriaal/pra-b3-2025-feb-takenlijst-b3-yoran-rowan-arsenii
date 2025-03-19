@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php?msg=Je moet eerst inloggen!");
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="nl">
 
@@ -23,9 +31,14 @@
                 <i class="fa-solid fa-plus"></i> Taak aanmaken</a>
         </div>
 
-        <?php if (isset($_GET['msg'])) {
-            echo "<div class='msg'>" . $_GET['msg'] . "</div>";
-        } ?>
+        <div class="msg-block">
+            <?php
+            if (isset($_GET['msg'])) {
+                echo "<div class='msg' id='msg'>" . htmlspecialchars($_GET['msg']) . "</div>";
+            }
+            ?>
+        </div>
+       
 
         <div class="task-menu">
             <div class="task-block" id="Todo">
@@ -102,3 +115,17 @@
 </body>
 
 </html>
+
+<script>
+    setTimeout(function () {
+        var msg = document.getElementById('msg');
+        if (msg) {
+            msg.style.transition = "opacity 1s";
+            msg.style.opacity = "0";
+
+            setTimeout(function () {
+                msg.remove();
+            }, 1000);
+        }
+    }, 5000); 
+</script>
