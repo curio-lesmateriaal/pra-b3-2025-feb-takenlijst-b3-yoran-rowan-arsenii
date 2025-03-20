@@ -323,12 +323,6 @@ a {
   border-bottom: #000 solid;
 }
 
-.task-create {
-  padding-top: 15px;
-  font-weight: 600;
-  display: flex;
-  justify-content: right;
-}
 
 .task-top i, .task-top a {
   padding-bottom: 0px;
@@ -344,7 +338,19 @@ a {
 .footer{
   margin-top: 2%;
 }
+/* main */
+/* .barIndex{
+  display: flex;
+  padding-top: 20px;
+  font-weight: 600;
+} */
 
+.task-create {
+  padding-top: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: right;
+}
 
 /* butten aanpas pagina */
 .form-container {

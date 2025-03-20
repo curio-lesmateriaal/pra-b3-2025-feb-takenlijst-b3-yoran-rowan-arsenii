@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id'])) {
 
         <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST">
             <input type="hidden" name="action" value="create">
-
+            <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
             <div class="form-group">
                 <label for="titel">Titel:</label>
                 <div>
@@ -58,7 +58,7 @@ if (!isset($_SESSION['user_id'])) {
                 <label for="deadline">Deadline:</label>
                 <input type="date" name="deadline" id="deadline" class="datetime">
             </div>
-            
+
             <div class="butten">
                 <input type="submit" class="form-input" value="Taak aanmaken">
             </div>

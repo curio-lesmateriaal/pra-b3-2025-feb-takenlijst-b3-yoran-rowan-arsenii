@@ -24,13 +24,17 @@ if ($action == "create") {
     }
 
     $status = "Todo";
-
+    $user = $_POST['user_id'];
+    
     if (isset($errors)) {
         var_dump($errors);
         die();
     }
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline)
-    VALUES (:titel, :beschrijving, :afdeling, :status, :deadline);";
+
+
+
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user)
+    VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user);";
 
     $statement = $conn->prepare($query);
 
@@ -40,6 +44,7 @@ if ($action == "create") {
         ":afdeling"=> $afdeling,
         ":status"=> $status,
         ":deadline"=>$deadline,
+        ":user"=>$user,
     ]);
 
     header("Location: ../../task/index.php?msg=Taak aangemaakt!");
