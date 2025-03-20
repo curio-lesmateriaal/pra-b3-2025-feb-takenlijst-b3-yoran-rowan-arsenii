@@ -338,19 +338,9 @@ a {
 .footer{
   margin-top: 2%;
 }
-/* main */
-/* .barIndex{
-  display: flex;
-  padding-top: 20px;
-  font-weight: 600;
-} */
 
-.task-create {
-  padding-top: 15px;
-  font-weight: 600;
-  display: flex;
-  justify-content: right;
-}
+
+
 
 /* butten aanpas pagina */
 .form-container {
@@ -395,10 +385,27 @@ a {
   color: #0e4890;
 }
 
+.task-create {
+  font-weight: 600;
+  display: flex;
+  justify-content: right;
+}
+
+.barIndex{
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
 
 
-
-
+.naastElkaar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
 
 
 .inlogPage{

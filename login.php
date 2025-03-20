@@ -5,6 +5,9 @@
     <title></title>
     <?php require_once 'components/head.php'; ?>
 </head>
+<style>
+
+</style>
 
 <body>
     <?php require_once 'components/header.php'; ?>
@@ -21,15 +24,18 @@
                 <label for="username">Username:</label>
                 <input type="text" name="username">
             </div>
+
+
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" name="password">
-                <a href="register.php">Create account</a>
             </div>
-            <div>
+            <div class="naastElkaar">
+                <a href="register.php" class="">Create account</a>
                 <input type="submit" value="Login" class="buttonOP">
             </div>
-            
+
         </form>
+
     </div>
 </body>

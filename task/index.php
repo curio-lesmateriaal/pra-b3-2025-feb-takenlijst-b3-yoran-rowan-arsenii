@@ -39,10 +39,6 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <?php require_once '../components/header.php'; ?>
 
-    <?php
-
-    ?>
-
     <div class="container">
         <div class="barIndex">
             <div class="home">
