@@ -8,14 +8,14 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../backend/conn.php';
 
 $afdelingFilter = isset($_GET['afdeling']) ? $_GET['afdeling'] : '';
-$userFilter = isset($_GET['user']) ? $_GET['user'] : $_SESSION['user_id']; 
-
+$userFilter = $_SESSION['user_id'];
 
 
 $query = "SELECT * FROM taken";
 if ($afdelingFilter && $afdelingFilter !== 'Alle') {
     $query .= " WHERE afdeling = :afdeling";
 }
+
 
 $query .= " ORDER BY deadline DESC";
 
