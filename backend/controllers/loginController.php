@@ -10,6 +10,23 @@ if ($action == 'create') {
     $password = $_POST['password'];
     $passwordConfirm = $_POST['passwordConfirm'];
 
+    if (empty($name)) {
+        $errors[] = "Vul name in. ";
+    }
+
+    if (empty($username)) {
+        $errors[] = "Vul username in. ";
+    }
+
+    if (empty($password )) {
+        $errors[] = "Vul de password in. ";
+    }
+
+    if (isset($errors)) {
+        header('Location: ../../register.php?msg=niet alles ingevuld!');
+        exit;
+
+    }
     if ($password != $passwordConfirm) {
         header('Location: ../../register.php?msg=Wachtwoord is niet hetzelfde!');
         exit;
@@ -42,6 +59,7 @@ if ($action == 'create') {
 
 if ($action == 'login') {
     $username = $_POST['username'];
+    
     $password = $_POST['password'];
     
     
