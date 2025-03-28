@@ -83,8 +83,8 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <select name="afdeling" id="afdeling" class="home" onchange="this.form.submit()">
                         <option value="Alle" <?php echo ($afdelingFilter == 'Alle' || $afdelingFilter == '') ? 'selected' : ''; ?>>Alle afdelingen</option>
                         <option value="test" <?php echo ($userFilter == 'test') ? 'selected' : ''; ?>>test</option>
-                        <option value="Personeel" <?php echo ($afdelingFilter == 'Personeel') ? 'selected' : ''; ?>>
-                            Personeel</option>
+                        <option value="Personeel" <?php echo ($afdelingFilter == 'Personeel') ? 'selected' : ''; ?>>Personeel
+                        </option>
                         <option value="Horeca" <?php echo ($afdelingFilter == 'Horeca') ? 'selected' : ''; ?>>Horeca
                         </option>
                         <option value="Techniek" <?php echo ($afdelingFilter == 'Techniek') ? 'selected' : ''; ?>>Techniek
@@ -208,5 +208,20 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                 msg.remove();
             }, 1000);
         }
-    }, 5000); 
+    }, 5000);
+
+    document.getElementById("afdeling").addEventListener("change", function () {
+        let selectedValue = this.value;
+        let url = new URL(window.location);
+
+        if (selectedValue === "test") {
+            url.searchParams.set('user', 'test');
+            url.searchParams.delete('afdeling');
+        } else {
+            url.searchParams.set('afdeling', selectedValue);
+            url.searchParams.delete('user');
+        }
+
+        window.location.href = url;
+    });
 </script>
