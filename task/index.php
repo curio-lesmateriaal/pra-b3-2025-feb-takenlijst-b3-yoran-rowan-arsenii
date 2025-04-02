@@ -7,30 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 
 require_once '../backend/conn.php';
 
-// $afdelingFilter = isset($_GET['afdeling']) ? $_GET['afdeling'] : '';
-// $userFilter = isset($_GET['user']) ? $_GET['user'] : '';
-// $user = $_SESSION['user_id'];
 
-
-// $query = "SELECT * FROM taken";
-// if ($afdelingFilter && $afdelingFilter !== 'Alle') {
-//     $query .= " WHERE afdeling = :afdeling";
-// }
-
-// if($userFilter && $user !== 'test'){
-//     $query.= " WHERE $user = :user";
-// }
-
-// $query .= " ORDER BY deadline DESC";
-
-// $statement = $conn->prepare($query);
-// if ($afdelingFilter && $afdelingFilter !== 'Alle') {
-//     $statement->bindParam(':afdeling', $afdelingFilter);
-// }
-// $statement->execute();
-// $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-// --
 
 $afdelingFilter = isset($_GET['afdeling']) ? $_GET['afdeling'] : '';
 $userFilter = isset($_GET['user']) ? $_GET['user'] : '';
@@ -82,7 +59,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <form method="GET" action="">
                     <select name="afdeling" id="afdeling" class="home" onchange="this.form.submit()">
                         <option value="Alle" <?php echo ($afdelingFilter == 'Alle' || $afdelingFilter == '') ? 'selected' : ''; ?>>Alle afdelingen</option>
-                        <option value="test" <?php echo ($userFilter == 'test') ? 'selected' : ''; ?>>test</option>
+                        <option value="test" <?php echo ($userFilter == 'test') ? 'selected' : ''; ?>>Zelf gemaakt</option>
                         <option value="Personeel" <?php echo ($afdelingFilter == 'Personeel') ? 'selected' : ''; ?>>Personeel
                         </option>
                         <option value="Horeca" <?php echo ($afdelingFilter == 'Horeca') ? 'selected' : ''; ?>>Horeca
