@@ -17,13 +17,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <?php require_once '../components/header.php'; ?>
 
-    <?php
-    // if (!isset($_SESSION['user_id'])) 
-    // {
-    // header("Location: ../../../loginController.php?msg=Je moet eerst inloggen!");
-    // exit;
-    // }
-    ?>
+
 
     <?php
     //1. verbinding
@@ -79,10 +73,9 @@ if (!isset($_SESSION['user_id'])) {
                 <label for="status">Status:</label>
                 <div class="dropdown">
                     <select name="status" id="status" class="form-input" value="">
-                        <option value="<?php echo $tasks['status']; ?>"><?php echo $tasks['status']; ?></option>
-                        <option value="Todo">Todo</option>
-                        <option value="Doing">Doing</option>
-                        <option value="Done">Done</option>
+                    <option value="Todo" <?php if ($tasks['status'] == 'Todo') echo 'selected'; ?>>Todo</option>
+                    <option value="Doing" <?php if ($tasks['status'] == 'Doing') echo 'selected'; ?>>Doing</option>
+                    <option value="Done" <?php if ($tasks['status'] == 'Done') echo 'selected'; ?>>Done</option>
                     </select>
                 </div>
             </div>
