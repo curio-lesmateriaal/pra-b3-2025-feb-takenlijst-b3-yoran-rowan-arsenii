@@ -103,10 +103,13 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
                                 <p>deadline: <?php echo $task['deadline']; ?></p>
 
-                                <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST"
-                                    onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
-                                    <input type="hidden" name="action" value="delete">
-                                    <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
+                                <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST">
+    <input type="hidden" name="action" value="update_status">
+    <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
+    <input type="hidden" name="status" value="Done">
+    <input type="submit" value="Markeer als Done" class="buttonDone">
+</form>
+
                                 </form>
                             </div>
                         <?php endif; ?>
