@@ -325,7 +325,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: #000 solid;
 }
 
 
@@ -443,8 +442,6 @@ a {
 .inlogPage {
   padding-top: 10%;
 }
-
-
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.

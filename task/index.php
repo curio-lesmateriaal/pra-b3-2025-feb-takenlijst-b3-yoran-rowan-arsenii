@@ -40,7 +40,9 @@ foreach ($params as $key => $value) {
 
 $statement->execute();
 $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
+
 
 <!doctype html>
 <html lang="nl">
@@ -94,9 +96,12 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <h2>Todo</h2>
                 <div class="scrol">
                     <?php foreach ($tasks as $task): ?>
+
                         <?php if ($task['status'] === 'Todo'): ?>
                             <div class="task">
-                                <div class="task-top">
+
+                                <div class="task-top"
+                                    style=" border-bottom: <?php echo $task['category']; ?> solid  4px !important;">
                                     <h1><?php echo $task['titel']; ?></h1>
                                     <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                                 </div>
@@ -131,7 +136,8 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['status'] === 'Doing'): ?>
                             <div class="task">
-                                <div class="task-top">
+                                <div class="task-top"
+                                    style=" border-bottom: <?php echo $task['category']; ?> solid  4px !important;">
                                     <h1><?php echo $task['titel']; ?></h1>
                                     <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                                 </div>
@@ -141,7 +147,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 <p>deadline: <?php echo $task['deadline']; ?></p>
 
                                 <div class="task-bottom">
-                                    <p>Mark  done:</p>
+                                    <p>Mark done:</p>
 
                                     <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php"
                                         method="POST">
@@ -165,7 +171,8 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <?php foreach ($tasks as $task): ?>
                         <?php if ($task['status'] === 'Done'): ?>
                             <div class="task">
-                                <div class="task-top">
+                                <div class="task-top"
+                                    style=" border-bottom: <?php echo $task['category']; ?> solid  4px !important;">
                                     <h1><?php echo $task['titel']; ?></h1>
                                     <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                                 </div>
@@ -174,7 +181,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
                                 <p>deadline: <?php echo $task['deadline']; ?></p>
 
-                                
+
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>

@@ -55,6 +55,21 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div class="form-group">
+                <label for="category">Categorie</label>
+                <div class="dropdown">
+                    <select id="category" name="category"  class="form-input">
+                        <option value="black">Geen kleur</option>
+                        <option value="red">Rood</option>
+                        <option value="blue">Blauw</option>
+                        <option value="green">Groen</option>
+                        <option value="yellow">Geel</option>
+                        <option value="orange">Oranje</option>
+                        <option value="purple">Paars</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="deadline">Deadline:</label>
                 <input type="date" name="deadline" id="deadline" class="datetime">
             </div>

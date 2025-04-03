@@ -83,7 +83,7 @@ if ($action == 'login') {
     }
     
     $_SESSION['user_id'] = $user['id'];
-    
+    $_SESSION['username'] = $user['username'];  
     
     header("Location: ../../index.php");
 }

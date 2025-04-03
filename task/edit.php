@@ -28,7 +28,6 @@ if (!isset($_SESSION['user_id'])) {
     $statement = $conn->prepare($query);
     $statement->execute([':id' => $id]);
     $tasks = $statement->fetch(PDO::FETCH_ASSOC);
-
     ?>
     <div class="container" id="createTask">
         <h1>Taak aanpassen</h1>
@@ -52,18 +51,44 @@ if (!isset($_SESSION['user_id'])) {
                         rows="4"><?php echo $tasks['beschrijving']; ?></textarea>
                 </div>
             </div>
-            <div class="form-group">
 
-                <label for="afdeling">Afdeling:</label>
+            <div class="form-group">
+                <label for="id-">Toegewezen gebruiker:</label>
                 <div class="dropdown">
                     <select name="afdeling" id="afdeling" class="form-input">
-                        <option value="<?php echo $tasks['afdeling']; ?>"><?php echo $tasks['afdeling']; ?></option>
+                        <option value="<?php echo $_SESSION['username']; ?>"><?php echo $_SESSION['username']; ?></option>
                         <option value="Personeel">Personeel</option>
                         <option value="Horeca">Horeca</option>
                         <option value="Techniek">Techniek</option>
                         <option value="Inkoop">Inkoop</option>
                         <option value="Klantenservice">Klantenservice </option>
                         <option value="Groen">Groen</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label for="afdeling">Afdeling:</label>
+                <div class="dropdown">
+                    <select name="afdeling" id="afdeling" class="form-input">
+                        <option value="<?php echo $tasks['afdeling']; ?>"><?php echo $tasks['afdeling']; ?></option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Categorie</label>
+                <div class="dropdown">
+                    <select id="category" name="category"  class="form-input">
+                        <option value="<?php echo $tasks['category']; ?>"><?php echo ucfirst($tasks['category']); ?></option>
+                        <option value="black">Geen kleur</option>
+                        <option value="red">Rood</option>
+                        <option value="blue">Blauw</option>
+                        <option value="green">Groen</option>
+                        <option value="yellow">Geel</option>
+                        <option value="orange">Oranje</option>
+                        <option value="purple">Paars</option>
                     </select>
                 </div>
             </div>

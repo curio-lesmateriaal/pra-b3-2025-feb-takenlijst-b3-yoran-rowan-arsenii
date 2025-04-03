@@ -26,7 +26,7 @@ if ($action == "create") {
     if (empty($titel)) {
         $errors[] = "Vul de taak-naam in.";
     }
-
+    
     $beschrijving = $_POST["beschrijving"];
     if (empty($beschrijving)) {
         $errors[] = "Vul de beschrijving in.";
@@ -36,6 +36,8 @@ if ($action == "create") {
     if (empty($afdeling)) {
         $errors[] = "Vul de afdeling in.";
     }
+
+    $category = $_POST["category"];
 
     $deadline = $_POST["deadline"];
     if (empty($deadline)) {
@@ -50,8 +52,8 @@ if ($action == "create") {
         die();
     }
 
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user)
-              VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user)";
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user, category)
+              VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user, :category)";
     $statement = $conn->prepare($query);
     $statement->execute([
         ":titel"=> $titel,
@@ -59,7 +61,9 @@ if ($action == "create") {
         ":afdeling"=> $afdeling,
         ":status"=> $status,
         ":deadline"=> $deadline,
-        ":user"=> $user
+        ":user"=> $user,
+        ':category' => $category,
+
     ]);
 
     header("Location: ../../task/index.php?msg=Taak aangemaakt!");
@@ -74,8 +78,9 @@ if ($action == "update") {
     $afdeling = $_POST["afdeling"];
     $deadline = $_POST["deadline"];
     $status = $_POST['status'];
+    $category = $_POST["category"];
 
-    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, status = :status, deadline = :deadline, afdeling = :afdeling WHERE id = :id";
+    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, status = :status, deadline = :deadline, afdeling = :afdeling, category =:category WHERE id = :id";
     $statement = $conn->prepare($query);
     $statement->execute([
         ":titel"=> $titel,
@@ -83,7 +88,8 @@ if ($action == "update") {
         ":status"=> $status,
         ":afdeling"=> $afdeling,
         ":deadline"=> $deadline,
-        ":id" => $id
+        ":id" => $id,
+        ":category"=> $category
     ]);
 
     header("Location: ../../task/index.php?msg=Taak veranderd!");
