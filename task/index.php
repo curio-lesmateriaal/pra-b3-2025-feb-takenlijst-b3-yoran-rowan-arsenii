@@ -30,7 +30,7 @@ if (!empty($conditions)) {
     $query .= " WHERE " . implode(" AND ", $conditions);
 }
 
-$query .= " ORDER BY deadline DESC";
+$query .= " ORDER BY deadline ASC";
 
 $statement = $conn->prepare($query);
 
@@ -59,8 +59,10 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <form method="GET" action="">
                     <select name="afdeling" id="afdeling" class="home" onchange="this.form.submit()">
                         <option value="Alle" <?php echo ($afdelingFilter == 'Alle' || $afdelingFilter == '') ? 'selected' : ''; ?>>Alle afdelingen</option>
-                        <option value="test" <?php echo ($userFilter == 'test') ? 'selected' : ''; ?>>Zelf gemaakt</option>
-                        <option value="Personeel" <?php echo ($afdelingFilter == 'Personeel') ? 'selected' : ''; ?>>Personeel
+                        <option value="test" <?php echo ($userFilter == 'test') ? 'selected' : ''; ?>>Zelf gemaakt
+                        </option>
+                        <option value="Personeel" <?php echo ($afdelingFilter == 'Personeel') ? 'selected' : ''; ?>>
+                            Personeel
                         </option>
                         <option value="Horeca" <?php echo ($afdelingFilter == 'Horeca') ? 'selected' : ''; ?>>Horeca
                         </option>
@@ -101,14 +103,21 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 
                                 <p>Afdeling: <?php echo $task['afdeling']; ?></p>
                                 <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
-                                <p>deadline: <?php echo $task['deadline']; ?></p>
+                                <p>Deadline: <?php echo $task['deadline']; ?></p>
+                                <div class="task-bottom">
+                                    <p>Mark done:</p>
 
-                                <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST">
-    <input type="hidden" name="action" value="update_status">
-    <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
-    <input type="hidden" name="status" value="Done">
-    <input type="submit" value="Markeer als Done" class="buttonDone">
-</form>
+                                    <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php"
+                                        method="POST">
+                                        <input type="hidden" name="action" value="update_status">
+                                        <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
+                                        <input type="hidden" name="status" value="Done">
+
+                                        <button type="submit" class="iconButton">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </button>
+                                    </form>
+                                </div>
 
                                 </form>
                             </div>
@@ -131,11 +140,20 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
                                 <p>deadline: <?php echo $task['deadline']; ?></p>
 
-                                <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST"
-                                    onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
-                                    <input type="hidden" name="action" value="delete">
-                                    <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
-                                </form>
+                                <div class="task-bottom">
+                                    <p>Mark  done:</p>
+
+                                    <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php"
+                                        method="POST">
+                                        <input type="hidden" name="action" value="update_status">
+                                        <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
+                                        <input type="hidden" name="status" value="Done">
+
+                                        <button type="submit" class="iconButton">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -156,11 +174,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
                                 <p>deadline: <?php echo $task['deadline']; ?></p>
 
-                                <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST"
-                                    onsubmit="return confirm('Weet je zeker dat je deze taak wilt verwijderen?');">
-                                    <input type="hidden" name="action" value="delete">
-                                    <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
-                                </form>
+                                
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>

@@ -334,6 +334,27 @@ a {
   padding-bottom: 0px;
 }
 
+.task-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: green;
+  margin-right: -7px;
+}
+
+.iconButton:hover {
+  color: darkgreen;
+}
+
+/* ---- */
 .aanmaken-tekst {
   margin-top: 2%;
   border: #000 solid 1px;
@@ -422,6 +443,8 @@ a {
 .inlogPage {
   padding-top: 10%;
 }
+
+
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
