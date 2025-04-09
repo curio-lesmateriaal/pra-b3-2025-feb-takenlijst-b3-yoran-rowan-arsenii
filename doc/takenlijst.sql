@@ -22,6 +22,9 @@ CREATE TABLE IF NOT EXISTS `taken` (
   `deadline` date DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `forID` int(11) DEFAULT NULL,
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
