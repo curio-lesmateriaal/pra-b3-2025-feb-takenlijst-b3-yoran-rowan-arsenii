@@ -21,10 +21,9 @@ CREATE TABLE IF NOT EXISTS `taken` (
   `status` varchar(255) NOT NULL DEFAULT 'todo',
   `deadline` date DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `category` varchar(255) DEFAULT NULL,
   `forID` int(11) DEFAULT NULL,
-
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
