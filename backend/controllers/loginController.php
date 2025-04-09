@@ -18,14 +18,13 @@ if ($action == 'create') {
         $errors[] = "Vul username in. ";
     }
 
-    if (empty($password )) {
+    if (empty($password)) {
         $errors[] = "Vul de password in. ";
     }
 
     if (isset($errors)) {
         header('Location: ../../register.php?msg=niet alles ingevuld!');
         exit;
-
     }
     if ($password != $passwordConfirm) {
         header('Location: ../../register.php?msg=Wachtwoord is niet hetzelfde!');
@@ -47,9 +46,9 @@ if ($action == 'create') {
     VALUES (:name, :username, :password);";
     $statement = $conn->prepare($query);
     $statement->execute([
-        ":name"=> $username,
-        ":username"=> $username,
-        ":password"=> $hashPassword,
+        ":name" => $username,
+        ":username" => $username,
+        ":password" => $hashPassword,
     ]);
 
     header("Location: ../../login.php?msg=Account aangemaakt!");
@@ -59,32 +58,32 @@ if ($action == 'create') {
 
 if ($action == 'login') {
     $username = $_POST['username'];
-    
+
     $password = $_POST['password'];
-    
-    
+
+
     $query = "SELECT * FROM users WHERE username = :username";
     $statement = $conn->prepare($query);
     $statement->execute([":username" => $username]);
-    $user=$statement->fetch(PDO::FETCH_ASSOC);
-    
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+
     $statement->execute([
-        ":username"=>$username,
+        ":username" => $username,
     ]);
-    
-    
+
+
     if ($statement->rowCount() < 1) {
         header("Location: ../../login.php?msg=Gegevens kloppen niet!");
         exit;
     }
     if (!password_verify($password, $user['password'])) {
-            header("Location: ../../login.php?msg=Gegevens kloppt niet!");
-            exit;
+        header("Location: ../../login.php?msg=Gegevens klopt niet!");
+        exit;
     }
-    
+
     $_SESSION['user_id'] = $user['id'];
-    $_SESSION['username'] = $user['username'];  
-    
+    $_SESSION['username'] = $user['username'];
+
     header("Location: ../../index.php");
 }
 ?>

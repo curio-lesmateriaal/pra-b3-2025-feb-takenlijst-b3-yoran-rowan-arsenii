@@ -21,6 +21,16 @@ require_once '../backend/conn.php';
     <div class="container" id="changesTask">
 
         <h1>Nieuwe taak</h1>
+        
+        <div class="msg-block" style: pading>
+
+            <?php
+            if (isset($_GET['msg'])) {
+                echo "<div class='msg' id='msg'>" . htmlspecialchars($_GET['msg']) . "</div>";
+            }
+            ?>
+
+        </div>
 
         <form action="<?php echo $base_url; ?>/backend/controllers/taskController.php" method="POST">
             <input type="hidden" name="action" value="create">
@@ -106,3 +116,17 @@ require_once '../backend/conn.php';
         </form>
     </div>
 </body>
+
+<script>
+        setTimeout(function () {
+        var msg = document.getElementById('msg');
+        if (msg) {
+            msg.style.transition = "opacity 1s";
+            msg.style.opacity = "0";
+
+            setTimeout(function () {
+                msg.remove();
+            }, 1000);
+        }
+    }, 5000);
+</script>

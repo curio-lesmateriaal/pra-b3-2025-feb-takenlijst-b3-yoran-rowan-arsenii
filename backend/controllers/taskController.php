@@ -53,8 +53,8 @@ if ($action == "create") {
     $user = $_POST['user_id'];
 
     if (isset($errors)) {
-        var_dump($errors);
-        die();
+        header("Location: ../../task/create.php?msg=Alle velden moeten ingevuld worden!");
+        exit;
     }
 
     $query = "INSERT INTO taken (titel, beschrijving, forID, afdeling, status, deadline, user, category)
