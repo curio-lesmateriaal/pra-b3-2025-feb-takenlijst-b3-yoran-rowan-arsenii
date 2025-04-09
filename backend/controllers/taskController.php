@@ -32,6 +32,11 @@ if ($action == "create") {
         $errors[] = "Vul de beschrijving in.";
     }
 
+    $forID = $_POST["forID"];
+    if (empty($forID)) {
+        $errors[] = "Vul een gebruiker in.";
+    }
+
     $afdeling = $_POST["afdeling"];
     if (empty($afdeling)) {
         $errors[] = "Vul de afdeling in.";
@@ -52,12 +57,13 @@ if ($action == "create") {
         die();
     }
 
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user, category)
-              VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user, :category)";
+    $query = "INSERT INTO taken (titel, beschrijving, forID, afdeling, status, deadline, user, category)
+              VALUES (:titel, :beschrijving, :forID, :afdeling, :status, :deadline, :user, :category)";
     $statement = $conn->prepare($query);
     $statement->execute([
         ":titel"=> $titel,
         ":beschrijving"=> $beschrijving,
+        ":forID"=>$forID,
         ":afdeling"=> $afdeling,
         ":status"=> $status,
         ":deadline"=> $deadline,
@@ -75,16 +81,19 @@ if ($action == "update") {
     $id = $_POST["id"];
     $titel = $_POST["titel"];
     $beschrijving = $_POST["beschrijving"];
+    $forID = $_POST['forID'];
     $afdeling = $_POST["afdeling"];
     $deadline = $_POST["deadline"];
     $status = $_POST['status'];
     $category = $_POST["category"];
 
-    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, status = :status, deadline = :deadline, afdeling = :afdeling, category =:category WHERE id = :id";
+
+    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, forID = :forID, status = :status, deadline = :deadline, afdeling = :afdeling, category =:category WHERE id = :id";
     $statement = $conn->prepare($query);
     $statement->execute([
         ":titel"=> $titel,
         ":beschrijving"=> $beschrijving,
+        ":forID"=>$forID,
         ":status"=> $status,
         ":afdeling"=> $afdeling,
         ":deadline"=> $deadline,

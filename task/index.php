@@ -21,8 +21,13 @@ if (!empty($afdelingFilter) && $afdelingFilter !== 'Alle') {
     $params[':afdeling'] = $afdelingFilter;
 }
 
-if (!empty($userFilter)) {
+if (!empty($userFilter) && $userFilter == "byMe") {
     $conditions[] = "user = :user";
+    $params[':user'] = $_SESSION['user_id'];
+}
+
+if (!empty($userFilter) && $userFilter == "forMe") {
+    $conditions[] = "forID = :user";
     $params[':user'] = $_SESSION['user_id'];
 }
 
@@ -61,7 +66,9 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <form method="GET" action="">
                     <select name="afdeling" id="afdeling" class="home" onchange="this.form.submit()">
                         <option value="Alle" <?php echo ($afdelingFilter == 'Alle' || $afdelingFilter == '') ? 'selected' : ''; ?>>Alle afdelingen</option>
-                        <option value="test" <?php echo ($userFilter == 'test') ? 'selected' : ''; ?>>Zelf gemaakt
+                        <option value="byMe" <?php echo ($userFilter == 'byMe') ? 'selected' : ''; ?>>Zelf gemaakt
+                        </option>
+                        <option value="forMe" <?php echo ($userFilter == 'forMe') ? 'selected' : ''; ?>>Taken voor mij
                         </option>
                         <option value="Personeel" <?php echo ($afdelingFilter == 'Personeel') ? 'selected' : ''; ?>>
                             Personeel
@@ -142,9 +149,9 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
                                     <a href="edit.php?id=<?php echo $task['id']; ?>"><i class="fa-solid fa-gear fa-lg"></i></a>
                                 </div>
 
-                                <p>afdeling: <?php echo $task['afdeling']; ?></p>
-                                <p>beschrijving: <?php echo $task['beschrijving']; ?></p>
-                                <p>deadline: <?php echo $task['deadline']; ?></p>
+                                <p>Afdeling: <?php echo $task['afdeling']; ?></p>
+                                <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
+                                <p>Deadline: <?php echo $task['deadline']; ?></p>
 
                                 <div class="task-bottom">
                                     <p>Mark done:</p>
@@ -179,7 +186,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 
                                 <p>Afdeling: <?php echo $task['afdeling']; ?></p>
                                 <p>Beschrijving: <?php echo $task['beschrijving']; ?></p>
-                                <p>deadline: <?php echo $task['deadline']; ?></p>
+                                <p>Deadline: <?php echo $task['deadline']; ?></p>
 
 
                             </div>
@@ -215,8 +222,11 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
         let selectedValue = this.value;
         let url = new URL(window.location);
 
-        if (selectedValue === "test") {
-            url.searchParams.set('user', 'test');
+        if (selectedValue === "byMe") {
+            url.searchParams.set('user', 'byMe');
+            url.searchParams.delete('afdeling');
+        } else if (selectedValue === "forMe") {
+            url.searchParams.set('user', 'forMe');
             url.searchParams.delete('afdeling');
         } else {
             url.searchParams.set('afdeling', selectedValue);

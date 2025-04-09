@@ -53,19 +53,26 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div class="form-group">
-                <label for="id-">Toegewezen gebruiker:</label>
-                <div class="dropdown">
-                    <select name="afdeling" id="afdeling" class="form-input">
-                        <option value="<?php echo $_SESSION['username']; ?>"><?php echo $_SESSION['username']; ?></option>
-                        <option value="Personeel">Personeel</option>
-                        <option value="Horeca">Horeca</option>
-                        <option value="Techniek">Techniek</option>
-                        <option value="Inkoop">Inkoop</option>
-                        <option value="Klantenservice">Klantenservice </option>
-                        <option value="Groen">Groen</option>
-                    </select>
+                <?php 
+
+                    $query = "SELECT naam, id FROM users";
+                    $statement = $conn->prepare($query);
+                    $statement->execute();
+                    $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                    ?>
+
+                    <div class="form-group">
+                        <label for="forID">Toegewezen gebruiker:</label>
+                        <div class="dropdown">
+                            <select id="forID" name="forID"  class="form-input">
+                                <?php foreach($users as $user): ?>
+                                    <option value="<?php echo $user['id']; ?>" <?php if ($tasks['forID'] == $user['id']) echo 'selected'; ?>><?php echo $user['naam']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
             <div class="form-group">
 
                 <label for="afdeling">Afdeling:</label>

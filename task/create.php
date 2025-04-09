@@ -4,6 +4,8 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.php?msg=Je moet eerst inloggen!");
     exit;
 }
+
+require_once '../backend/conn.php';
 ?>
 
 <!doctype html>
@@ -38,6 +40,27 @@ if (!isset($_SESSION['user_id'])) {
                     <textarea name="beschrijving" id="beschrijving" class="form-input" rows="4"></textarea>
                 </div>
             </div>
+
+            <?php 
+            $query = "SELECT naam, id FROM users";
+            $statement = $conn->prepare($query);
+            $statement->execute();
+            $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+
+            <div class="form-group">
+                <label for="forID">Toegewezen gebruiker:</label>
+                <div class="dropdown">
+                    <select id="forID" name="forID"  class="form-input">
+                        <?php foreach($users as $user): ?>
+                            <option value="<?php echo $user['id']; ?>"><?php echo $user['naam']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+
+
+
             <div class="form-group">
 
                 <label for="afdeling">Afdeling:</label>
@@ -73,6 +96,8 @@ if (!isset($_SESSION['user_id'])) {
                 <label for="deadline">Deadline:</label>
                 <input type="date" name="deadline" id="deadline" class="datetime">
             </div>
+
+            
 
             <div class="butten">
                 <input type="submit" class="form-input" value="Taak aanmaken">
