@@ -113,7 +113,7 @@ if ($action == 'delete') {
     }
 
     $id = $_POST['id'];
-    $query = "DELETE FROM taken WHERE id = :id";
+    $query = "DELETE FROM taken WHERE id = :id LIMIT 1";
     $statement = $conn->prepare($query);
     $statement->execute([':id' => $id]);
 

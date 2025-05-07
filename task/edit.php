@@ -79,7 +79,12 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="dropdown">
                     <select name="afdeling" id="afdeling" class="form-input">
                         <option value="<?php echo $tasks['afdeling']; ?>"><?php echo $tasks['afdeling']; ?></option>
-
+                        <option value="Personeel">Personeel</option>
+                        <option value="Horeca">Horeca</option>
+                        <option value="Techniek">Techniek</option>
+                        <option value="Inkoop">Inkoop</option>
+                        <option value="Klantenservice">Klantenservice </option>
+                        <option value="Groen">Groen</option>
                     </select>
                 </div>
             </div>

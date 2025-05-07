@@ -8,19 +8,22 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../backend/conn.php';
 
 
-
+// Filters ophalen uit de URL (GET parameters)
 $afdelingFilter = isset($_GET['afdeling']) ? $_GET['afdeling'] : '';
 $userFilter = isset($_GET['user']) ? $_GET['user'] : '';
 
+// Query en voorwaarden voorbereiden
 $query = "SELECT * FROM taken";
 $conditions = [];
 $params = [];
 
+//Filter op afdeling
 if (!empty($afdelingFilter) && $afdelingFilter !== 'Alle') {
     $conditions[] = "afdeling = :afdeling";
     $params[':afdeling'] = $afdelingFilter;
 }
 
+//Filter op gebruiker (wie heeft de taak gemaakt of voor wie is de taak bedoeld?
 if (!empty($userFilter) && $userFilter == "byMe") {
     $conditions[] = "user = :user";
     $params[':user'] = $_SESSION['user_id'];
@@ -31,12 +34,15 @@ if (!empty($userFilter) && $userFilter == "forMe") {
     $params[':user'] = $_SESSION['user_id'];
 }
 
+//Voeg WHERE-voorwaarden toe aan de query
 if (!empty($conditions)) {
     $query .= " WHERE " . implode(" AND ", $conditions);
 }
 
+//Sorteer de resultaten
 $query .= " ORDER BY deadline ASC";
 
+//Voer de query veilig uit 
 $statement = $conn->prepare($query);
 
 foreach ($params as $key => $value) {
